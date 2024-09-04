@@ -117,7 +117,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     /**
      * Maximum size for an image file that can be stored in the database
      */
-    private static final int FIVE_MB = 5000000;
+    private static final int MAX_MB = 10000000; //10MB
 
     /**
      * URI of selected image
@@ -508,7 +508,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                         mItemBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
                         int i = mItemBitmap.getAllocationByteCount();
                         // if less than 5MB set the image
-                        if(i < FIVE_MB) {
+                        if(i < MAX_MB) {
                             mItemImageView.setImageBitmap(mItemBitmap);
                             Log.e("Editor Activity", "successfully converted image");
                         }
